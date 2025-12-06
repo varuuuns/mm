@@ -1,4 +1,4 @@
-export default function SearchBox({query, onQueryChange, category, categories, onCategoryChange}) {
+export default function SearchBar({query, onQueryChange, category, categories, onCategoryChange}) {
     return (
         <section className="search">
             <label className="visually-hidden" htmlFor="query">Search courses</label>

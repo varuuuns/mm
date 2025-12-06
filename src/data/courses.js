@@ -1,4 +1,4 @@
-export default [
+export default coursesData=[
     {
         id: 1,
         name: "react fundamentals",
@@ -50,6 +50,6 @@ export default [
         level: "Advanced",
         durantion: "10h",
         thumbnail: "https://plus.unsplash.com/premium_photo-1755943759084-ce02e3f09c3c",
-        description:"In depth film making course"
+        description: "In depth film making course"
     }
-]
+];
