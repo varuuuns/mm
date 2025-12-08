@@ -1,11 +1,11 @@
-export default coursesData=[
+const coursesData=[
     {
         id: 1,
         name: "react fundamentals",
         category: "development",
         level: "beginner",
-        durantion: "6h",
-        tthumbnail: "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=800&auto=format&fit=crop",
+        duration: "6h",
+        tthumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
         description: "Learn components, props, state, and hooks to build interactive UIs."
     },
     {
@@ -13,6 +13,7 @@ export default coursesData=[
         name: "UI/UX design",
         category: "design",
         level: "beginner-intermediate",
+        duration:"7h",
         thumbnail: "https://images.unsplash.com/photo-1557804483-ef3ae78eca57?q=80&w=800&auto=format&fit=crop",
         description: "Foundations of visual hierarchy, spacing, and responsive layout."
     },
@@ -48,8 +49,10 @@ export default coursesData=[
         name: "Filmography",
         category: "films",
         level: "Advanced",
-        durantion: "10h",
-        thumbnail: "https://plus.unsplash.com/premium_photo-1755943759084-ce02e3f09c3c",
+        duration: "10h",
+        thumbnail: "https://plus.unsplash.com/premium_photo-1755943759084-ce02e3f09c3c?q=80&w=800&auto=format&fit=crop",
         description: "In depth film making course"
     }
 ];
+
+export default coursesData;

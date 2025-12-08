@@ -7,11 +7,11 @@ export default function CourseList({courses}) {
 
     return (
         <ul className="grid">
-            {courses.map(c => {
+            {courses.map(c => (
                 <li key={c.id}>
                     <CourseCard course={c}/>
                 </li>
-            })}
+            ))}
         </ul>
     )
 }

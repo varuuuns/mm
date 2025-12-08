@@ -20,7 +20,7 @@ export default function App() {
                 setIsLoadingQuote(true);
                 setQuoteError("");
                 
-                const response = await fetch(import.meta.env.VITE_QUOTE_URL);
+                const response = await fetch('https://zenquotes.io/api/random');
                 if (!response.ok) throw new Error('Failed to fetch quote');
 
                 const data = await response.json();

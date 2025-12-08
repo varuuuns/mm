@@ -1,5 +1,5 @@
 export default function CourseCard({course}) {
-    const { name, category, level, duration, thumbnail, desciption } = course;
+    const { name, category, level, duration, thumbnail, description } = course;
     return (
         <>
             <article className="card" tabIndex={0} aria-label={`${name} course card`}>
@@ -10,7 +10,7 @@ export default function CourseCard({course}) {
 
                     <h3 className="card-title">{name}</h3>
                     <p className="chip">{category}</p>
-                    <p className="desc">{desciption}</p>
+                    <p className="desc">{description}</p>
 
                     <div className="meta">
                         <span>{level}</span>

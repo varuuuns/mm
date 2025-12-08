@@ -1,12 +1,28 @@
 :root {
-    --bg: #0b0c10;
-    --card: #121318;
-    --muted: #a0a4ad;
-    --text: #f3f4f6;
-    --accent: #4ade80;
-    --ring: #93c5fd;
+    /* * Core Theme Colors: Bright & Energetic */
+    --bg: #98C424;
+    /* Bright Lime Green (Main Background) */
+    --card-outer: #ffffff;
+    /* White Card Background (Outer Shell) */
+    --card-inner: #f5f5f5;
+    /* NEW: Light Grey Shade (Inner Content Area) */
+    --text: #1a1a1a;
+    /* Primary Dark Text */
+    --muted: #555555;
+    /* Secondary/Muted Text */
+    --border-color: #e0e0e0;
+    /* Light Gray for borders (subtle) */
+
+    /* * Accent Colors: Black/Dark and Yellow/Orange */
+    --accent: #2c2c2c;
+    /* Dark Accent (Used for header background, chip background) */
+    --secondary-accent: #ffb700;
+    /* Yellow/Orange (Used for buttons, specific highlights) */
+    --ring: #ffb700;
+    /* Ring color matches secondary accent */
 }
 
+/* * Global & Body Styles */
 * {
     box-sizing: border-box
 }
@@ -21,7 +37,8 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu
+    /* Font Consistency: Using a more robust, clean sans-serif stack */
+    font: 16px/1.6 'Inter', 'Roboto', 'Arial', system-ui, -apple-system, sans-serif;
 }
 
 .container {
@@ -30,31 +47,45 @@ body {
     padding: 24px
 }
 
+/* * Header Consistency */
 .header {
-    margin: 8px 0 16px
+    margin: 8px 0 16px;
+    padding: 16px 0;
+    text-align: center;
 }
 
 .title {
-    font-size: clamp(28px, 3vw, 44px);
-    margin: 0
+    font-size: clamp(36px, 4vw, 60px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin: 0;
+    color: var(--text);
 }
 
 .subtitle {
-    color: var(--muted);
-    margin: 6px 0 0
+    color: var(--text);
+    font-size: 18px;
+    margin-top: 6px;
+    opacity: 0.8;
 }
 
+/* * Quote Section (Similar to image boxes, using inner grey shade) */
 .quote {
-    margin: 16px 0 24px;
-    padding: 12px 16px;
-    border: 1px solid #1f2937;
-    border-radius: 12px;
-    background: #0f1117
+    margin: 16px auto 24px;
+    padding: 18px 24px;
+    border: 1px dashed var(--border-color);
+    border-radius: 20px;
+    background: var(--card-inner);
+    /* Use subtle grey shade */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .quote blockquote {
     margin: 0;
-    font-style: italic
+    font-style: italic;
+    color: var(--text);
+    font-size: 15px;
 }
 
 .quote span {
@@ -66,9 +97,10 @@ body {
 }
 
 .error {
-    color: #fda4af
+    color: #ff3333;
 }
 
+/* * Search Bar */
 .search {
     display: flex;
     gap: 12px;
@@ -84,104 +116,144 @@ body {
 .search select {
     width: 100%;
     max-width: 560px;
-    background: var(--card);
-    border: 1px solid #1f2937;
+    background: var(--card-outer);
+    /* Keep inputs white */
+    border: 1px solid var(--border-color);
     color: var(--text);
     padding: 10px 12px;
     border-radius: 10px;
     outline: none;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .search input:focus,
 .search select:focus {
-    box-shadow: 0 0 0 3px var(--ring)
+    box-shadow: 0 0 0 3px var(--ring);
 }
 
+/* * Course List Grid */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 20px;
     padding: 0;
     list-style: none;
     margin: 16px 0 40px
 }
 
+/* * Card Structure & Hover */
 .card {
-    background: var(--card);
-    border: 1px solid #1f2937;
-    border-radius: 16px;
+    background: var(--card-outer);
+    /* Keep outer card white */
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
     overflow: hidden;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card:focus {
-    outline: 3px solid var(--ring)
+    outline: 3px solid var(--ring);
+    outline-offset: -3px;
 }
 
 .thumb {
     width: 100%;
     height: 160px;
-    object-fit: cover
+    object-fit: cover;
+    /* Maintain radius with card */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
+/* * Card Body: Contains the grey shade */
 .card-body {
-    padding: 14px;
+    /* Use the light grey shade for the inner content background */
+    background: var(--card-inner);
+    padding: 18px 18px 10px 18px;
     display: flex;
     flex-direction: column;
-    gap: 8px
+    gap: 12px;
+    flex-grow: 1;
 }
 
 .card-title {
     margin: 0;
-    font-size: 18px
+    font-size: 20px;
+    font-weight: 700;
 }
 
+/* * Category Chip Styling */
 .chip {
     display: inline-block;
-    background: #111827;
-    border: 1px solid #1f2937;
-    border-radius: 999px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
     padding: 4px 10px;
     font-size: 12px;
-    color: var(--muted)
+    color: var(--card-outer);
+    text-transform: uppercase;
+    font-weight: 600;
+    width: fit-content;
 }
 
 .desc {
-    color: #cbd5e1;
-    margin: 2px 0 4px
+    color: var(--muted);
+    margin: 2px 0 4px;
+    font-size: 15px;
 }
 
 .meta {
     display: flex;
     gap: 8px;
     color: var(--muted);
-    font-size: 14px
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: auto;
 }
 
+/* * Enrollment Button */
 .btn {
-    margin-top: auto;
-    align-self: flex-start;
-    background: var(--accent);
-    color: #052e16;
+    margin: 10px auto 18px auto;
+    width: 90%;
+
+    background: var(--secondary-accent);
+    color: var(--text);
     border: none;
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: filter 0.2s, box-shadow 0.2s;
 }
 
 .btn:hover {
-    filter: brightness(1.05)
+    filter: brightness(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* * Footer Consistency */
 .footer {
-    color: var(--muted);
+    color: var(--text);
     text-align: center;
     padding: 16px 0;
-    border-top: 1px solid #1f2937
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
 }
 
-/* Mobile ~414px */
+/* * Responsiveness */
 @media (max-width: 480px) {
     .container {
         padding: 16px
@@ -201,7 +273,6 @@ body {
     }
 }
 
-/* Wide desktop 1600x900 */
 @media (min-width: 1600px) {
     .container {
         max-width: 1440px
