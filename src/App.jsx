@@ -19,14 +19,14 @@ export default function App() {
             try {
                 setIsLoadingQuote(true);
                 setQuoteError("");
-                
+
                 const response = await fetch('https://zenquotes.io/api/random');
                 if (!response.ok) throw new Error('Failed to fetch quote');
 
                 const data = await response.json();
                 if (mounted) setQuote({ content: data.content, author: data.author });
             }
-            catch (err) {
+            catch {
                 if (mounted) setQuoteError("Couldn't load quote, try refreshign");
             }
             finally {
@@ -39,7 +39,7 @@ export default function App() {
     const categories = useMemo(() => {
         const set = new Set(coursesData.map(c => c.category));
         return ["all", ...Array.from(set)];
-    })
+    }, [])
 
     const filtered = useMemo(() => {
         const q = query.trim().toLowerCase();
@@ -57,15 +57,15 @@ export default function App() {
 
                 <section className="quote" aria-live="polite">
                     {isLoadingQuote ? (<p className="muted">Loading a quick boost…</p>) :
-                        quoteError ? ( <p className="error">{quoteError}</p>) : 
-                        ( quote.content && (
-                            <blockquote>
-                                “{quote.content}” <span>— {quote.author}</span>
-                            </blockquote>
-                        )
-                    )}
+                        quoteError ? (<p className="error">{quoteError}</p>) :
+                            (quote.content && (
+                                <blockquote>
+                                    “{quote.content}” <span>— {quote.author}</span>
+                                </blockquote>
+                            )
+                            )}
                 </section>
-                
+
                 <SearchBar
                     query={query}
                     onQueryChange={setQuery}
