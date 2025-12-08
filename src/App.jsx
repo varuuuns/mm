@@ -20,11 +20,11 @@ export default function App() {
                 setIsLoadingQuote(true);
                 setQuoteError("");
 
-                const response = await fetch('https://zenquotes.io/api/random');
+                const response = await fetch('https://dummyjson.com/quotes/random');
                 if (!response.ok) throw new Error('Failed to fetch quote');
 
                 const data = await response.json();
-                if (mounted) setQuote({ content: data.content, author: data.author });
+                if (mounted) setQuote({ content: data.quote, author: data.author });
             }
             catch {
                 if (mounted) setQuoteError("Couldn't load quote, try refreshign");
